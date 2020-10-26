@@ -1,3 +1,4 @@
+u
 #include <Servo.h>
 Servo myservo;
  
@@ -56,7 +57,10 @@ void put_off_fire()
   
   fire=false;
 }
- 
+//rightmotor 1 - clockwise
+//rightmotor 2 - anti
+//leftmotor 1 - anti
+//leftmotor 2 - clockwise 
 void loop()
 {
    myservo.write(90); //Sweep_Servo();  
@@ -73,8 +77,8 @@ void loop()
     else if (digitalRead(Forward_S) ==0) //If Fire is straight ahead
     {
     //Move the robot forward
-    digitalWrite(LM2, HIGH);
-    digitalWrite(LM1, LOW);
+    digitalWrite(LM2, LOW);
+    digitalWrite(LM1, HIGH);
     digitalWrite(RM2, HIGH);
     digitalWrite(RM1, LOW);
     fire = true;
@@ -84,18 +88,18 @@ void loop()
     {
     //Move the robot left
     digitalWrite(LM2, HIGH);
-    digitalWrite(LM1, LOW);
+    digitalWrite(LM1, HIGH);
     digitalWrite(RM2, HIGH);
-    digitalWrite(RM1, HIGH);
+    digitalWrite(RM1, LOW);
     }
     
     else if (digitalRead(Right_S) ==0) //If Fire is to the right
     {
     //Move the robot right
-    digitalWrite(LM2, HIGH);
+    digitalWrite(LM2, LOW);
     digitalWrite(LM1, HIGH);
     digitalWrite(RM2, HIGH);
-    digitalWrite(RM1, LOW);
+    digitalWrite(RM1, HIGH);
     }
     
 delay(300); //Slow down the speed of robot
